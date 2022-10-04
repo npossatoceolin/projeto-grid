@@ -1,0 +1,325 @@
+body,
+p,
+h1,
+ul,
+li,
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Vollkorn", Georgia, serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+}
+
+/* GRID GERAL */
+
+.frame {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+  grid-template-areas:
+    "header header header"
+    "sidenav content adverts"
+    "footer footer footer";
+}
+
+/* HEADER */
+.header {
+  grid-area: header;
+  background: linear-gradient(135deg, #8844ee, #b07dfb);
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.header nav a {
+  display: block;
+  padding: 10px;
+  color: #ffffff;
+  font-size: 1.125em;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  transition: 0.1s;
+}
+
+.header nav a:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+  max-width: 200px;
+}
+
+/* SIDENAV */
+.sidenav {
+  background: #f8f8f8;
+  padding: 30px;
+  grid-area: sidenav;
+}
+
+.sidenav li a {
+  display: block;
+  min-width: 60px;
+  max-width: 100px;
+  margin: 0 auto 30px auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px rgba(44, 44, 44, 0.15);
+  transition: 0.1s ease-out;
+}
+
+.sidenav li a:hover {
+  background: #b07dfb;
+}
+
+/* CONTENT */
+.content {
+  grid-area: content;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.column-wide {
+  grid-column: 1 / -1; /*Poderia ser 1 / 3 já que só possui duas colunas. Usamos o -1 para caso no futuro adicionemos uma nova coluna ñ quebre. O -1 faz com que pegue de ponta a ponta o conteudo!*/
+}
+
+.img-one {
+  grid-row: span 2;
+  align-self: end;
+}
+
+.img-two {
+  align-self: end;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.infos p + p {
+  margin-top: 30px;
+} /* para dar um 'gap' entre os paragrafos, ignorando o primeiro 'p'. Ou seja, margin-top só no p que vem após outro 'p'*/
+
+#destaque {
+  font-size: 0.875em;
+  color: #b07dfb;
+  max-width: 16em;
+}
+
+.title {
+  color: #b07dfb;
+}
+
+.title h1 {
+  font-size: 3.75em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.title span {
+  font-size: 0.875em;
+  font-style: italic;
+}
+
+.quote,
+.attributes {
+  background: linear-gradient(135deg, #8844ee, #b07db0);
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+}
+
+.quote p {
+  color: #ffffff;
+  font-size: 1.5em;
+  font-style: italic;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.attributes {
+  align-self: start;
+}
+
+.attributes li {
+  color: #ffffff;
+  font-family: Courier, monospace;
+  font-size: 1.125em;
+  padding: 15px;
+}
+
+.attributes li + li {
+  border-top: 2px solid #b07dfb;
+}
+
+/* CARACTERISTICAS */
+.features {
+  display: flex;
+}
+
+/* fala diretamente com as divs dentro da classe features */
+.features > div {
+  width: 80px;
+  height: 100px;
+  text-align: center;
+  background: linear-gradient(135deg, #8844ee, #b07dfb);
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px rgba(44, 44, 44, 0.15);
+}
+
+.features > div:first-child {
+  margin-right: 30px;
+}
+
+.features span {
+  display: block;
+}
+
+.number {
+  font-size: 3em;
+  line-height: 1em;
+  margin: 10px auto;
+  color: #b07dfb;
+}
+
+.label {
+  background: #ffffff;
+  height: 25%;
+  font-size: 1em;
+  color: #b07dfb;
+  border-radius: 0 0 5px 5px;
+  padding: 5px 0;
+}
+
+/* ADVERTS */
+.adverts {
+  grid-area: adverts;
+  background: #f8f8f8;
+  display: grid;
+  align-content: start;
+  padding: 30px;
+  grid-gap: 30px;
+}
+
+/* FOOTER */
+.footer {
+  grid-area: footer;
+  background: linear-gradient(135deg, #8844ee, #b07dfb);
+}
+
+.footer p {
+  color: #ffffff;
+  text-align: center;
+  padding: 30px;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+@media (max-width: 1200px) {
+  .frame {
+    grid-template-columns: minmax(160px, 1fr) 3fr;
+    grid-template-areas:
+      "header header"
+      "sidenav content"
+      "sidnav adverts"
+      "footer footer";
+  }
+}
+
+@media (max-width: 720px) {
+  .frame {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header"
+      "sidenav"
+      "content"
+      "adverts"
+      "footer";
+  }
+
+  .header {
+    grid-template-columns: auto;
+  }
+
+  .header nav ul {
+    gap: 10px;
+  }
+
+  .header nav a {
+    font-size: 1em;
+  }
+
+  .logo {
+    margin-bottom: 20px;
+  }
+
+  .sidenav {
+    padding: 0 30px;
+    overflow-x: auto; /*se for estourar o container no eixo-x, cria uma barra de rolagem*/
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    position: relative;
+  }
+
+  .sidenav::after {
+    content: "→";
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    color: rgba(0, 0, 0, 0.3);
+    animation: seta 0.5s ease-in 0s infinite alternate;
+  }
+
+  .sidenav ul {
+    display: flex;
+  }
+
+  .sidenav li a {
+    margin: 30px 30px 30px 0;
+  }
+}
+
+@keyframes seta {
+  from {
+    right: 30px;
+  }
+  to {
+    right: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: auto;
+  }
+}
